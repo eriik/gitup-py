@@ -1,1 +1,16 @@
-"" 
+= Gitup-py
+Gitup in python.
+This is for us working with the cmd.exe (not the Git Bash).
+
+== How to use it
+=== Windows
+First, clone:
+git clone git://github.com/eriik/gitup-py.git
+
+Then you've gotta know what path you're using:
+cd gitup-py
+echo %cd%
+
+Add this path to the "enviroment variable path" by right clicking "Computer" -> "Properties" -> "Advanced System Settings" -> Tab "Advanced" -> "Enviroment Variables..."
+Scroll down in the System variables to "Path", select it and choose "Edit". Go to the last character, add a semicolon and then your path. Should look something like this: "[...]Program Files\Mercurial\;C:\Program Files\Git\cmd;C:\Temp\gitup-py"
+
