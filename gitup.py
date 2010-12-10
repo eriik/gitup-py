@@ -29,6 +29,7 @@ class Gitup:
 			print "You are on the master branch. Gitdown is intended to be used in local branches."
 			print "git checkout -b yournewbranch to create a new local branch"
 			print "or git checkout yourexistingbranch to checkout an existing one."
+			os.system("git pull origin master")
 			return 0;
 		else:
 			if(self.everything_commited()):
@@ -47,17 +48,26 @@ class Gitup:
 	def gitup(self):
 		if(self.everything_commited()):
 			self.run_gitup_commands(self.current_branch())
-			print "Finished."
 		else:
 			os.system("git status")
-			print "Hold your horses! You must commit your changes first."
+			_input = raw_input("Warning: You have uncommitted changes. Continue? (y/n)")
+			if(_input.lower() == "y"):
+				os.system("git stash")
+				self.run_gitup_commands(self.current_branch())
+				os.system("git stash apply")
+			else:
+				print "Good girl"
 	def run_gitup_commands(self, branch):
 		print "Branch: " + branch
-		os.system("git checkout master")
-		os.system("git merge " + branch)
+		if(branch != "master"):
+			os.system("git checkout master")
+			os.system("git merge " + branch)
 		os.system("git push origin master")
-		os.system("git checkout " + branch)
-		os.system("git rebase master")
+		if(branch != "master"):
+			os.system("git checkout " + branch)
+			os.system("git rebase master")
+		else:
+			print "You should really consider doing development locally in a branch that is not the master branch."
 
 	def run_gitdown_commands(self, branch):
 		print "Branch: " + branch
