@@ -1,11 +1,12 @@
 # Gitup-py
-Gitup in python. Original ruby-version by David Svensson: https://github.com/standoutdavid/gitup
+Gitup in python. [Original ruby-version by David Svensson](https://github.com/standoutdavid/gitup)
 
 Written because I don't use ruby and I'm using windows.
 
 This is for us working with the cmd.exe (not the Git Bash).
 
 ## How to use it
+[General information on how to use gitup.](https://github.com/standoutdavid/gitup#readme)
 ### Windows
 First, clone:
 `git clone git://github.com/eriik/gitup-py.git`
